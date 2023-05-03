@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Counter from "./counter.js";
+import { Button } from "@mui/material";
+import styled from "@emotion/styled";
+
+const TextButton = styled(Button)`
+  text-transform: none;
+  `;
+
 
 function App() {
+  const [text, setText] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <textarea value={text} onChange={(e) => setText(e.target.value)} />
+      <Counter text={text} />
     </div>
   );
 }
